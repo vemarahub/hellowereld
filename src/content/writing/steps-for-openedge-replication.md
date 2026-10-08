@@ -4,6 +4,8 @@ description: 'below steps for OS Copy Replication 1.Copy the source.repl.propert
 date: 2017-12-14
 tags: ['target.repl.properties.', 'openedge', 'settting-replication', 'replication-commands', 'dsrutil', 'source.repl.propertes']
 featured: false
+topic: 'Progress/OpenEdge'
+order: 19
 ---
 
   

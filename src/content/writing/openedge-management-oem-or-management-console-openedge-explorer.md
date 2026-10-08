@@ -4,6 +4,8 @@ description: 'In windows version of progress openedge, the product package comes
 date: 2018-08-06
 tags: ['openedge', 'management-console', 'monitoring']
 featured: false
+topic: 'Progress/OpenEdge'
+order: 24
 ---
 
   

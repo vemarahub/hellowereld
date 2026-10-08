@@ -4,6 +4,8 @@ description: 'In unix system installation can be done in more than one ways.For 
 date: 2019-03-12
 tags: ['mongo', 'mongo-unix-installation']
 featured: false
+topic: 'MongoDB'
+order: 999
 ---
 
 In unix system installation can be done in more than one ways.For installing mongo in unix/linux systems follow the below steps using apt-get command use the below steps after logging into the server:

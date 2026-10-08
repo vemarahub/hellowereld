@@ -4,6 +4,8 @@ description: 'MySQL supports various storage engines to service the database ser
 date: 2019-03-12
 tags: ['mysql', 'mysql-storage-engine']
 featured: false
+topic: 'MySQL'
+order: 8
 ---
 
   

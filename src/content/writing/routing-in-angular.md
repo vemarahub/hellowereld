@@ -4,6 +4,8 @@ description: 'We can route hyperlinks to route to any of the components based on
 date: 2020-04-10
 tags: ['angular', 'routing', 'bootstrap']
 featured: false
+topic: 'Angular'
+order: 3
 ---
 
   

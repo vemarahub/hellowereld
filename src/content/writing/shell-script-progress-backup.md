@@ -4,6 +4,8 @@ description: 'Script : Progress database backup Script Name: progressbackup.sh S
 date: 2020-03-24
 tags: ['database', 'backup', 'shell', 'progress', 'shell-scripting']
 featured: false
+topic: 'Progress/OpenEdge'
+order: 999
 ---
 
   

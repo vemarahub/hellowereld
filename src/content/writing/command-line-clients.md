@@ -4,6 +4,8 @@ description: 'Command Line tool benefits Quick Specific Low overhead Scriptable 
 date: 2019-07-09
 tags: []
 featured: false
+topic: 'MySQL'
+order: 999
 ---
 
 **Command Line tool benefits**

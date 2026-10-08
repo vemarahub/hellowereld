@@ -4,6 +4,8 @@ description: 'Appserver Environment provides a foundation for a flexible and ext
 date: 2017-12-14
 tags: ['ubroker.properties', 'agent', 'adminserver', 'webspeed', 'appserver', 'nameserver', 'broker']
 featured: false
+topic: 'Progress/OpenEdge'
+order: 21
 ---
 
 **Appserver Environment**  provides a foundation for a flexible and extensible application infrastructure. OpenEdge Application Server supports an open, component-based model for partitioning applications, allowing them to be transformed into modular elements within an integrated environment.  

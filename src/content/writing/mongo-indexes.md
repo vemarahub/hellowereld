@@ -4,6 +4,8 @@ description: 'Index in a database is what bookmark is to a book, it helps the fa
 date: 2019-03-21
 tags: ['mongo', 'index']
 featured: false
+topic: 'MongoDB'
+order: 7
 ---
 
 Index in a database is what bookmark is to a book, it helps the fast traversal and retrieval of documents through indexing of each document of a collection.  

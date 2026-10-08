@@ -4,6 +4,8 @@ description: 'After installing MySQL-Workbench , in the workbench or by opening 
 date: 2019-03-07
 tags: ['mysql-queries', 'mysql']
 featured: false
+topic: 'MySQL'
+order: 7
 ---
 
   

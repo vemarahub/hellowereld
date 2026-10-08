@@ -4,6 +4,8 @@ description: 'To call a rest api service in angular, follow the below steps afte
 date: 2020-04-16
 tags: ['angular', 'rest-api', 'service-in-angular']
 featured: false
+topic: 'Angular'
+order: 7
 ---
 
 To call a rest api service in angular, follow the below steps after setting up a fake service and routings as mentioned in previous blogs:  

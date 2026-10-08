@@ -4,6 +4,8 @@ description: 'How does the Linux OS work? Linux has a KERNEL and one or more SHE
 date: 2019-04-30
 tags: []
 featured: false
+topic: 'Linux'
+order: 999
 ---
 
 ### **How does the Linux OS work?**

@@ -4,6 +4,8 @@ description: 'Follow the below steps to configure MySQL Replication in the Linux
 date: 2019-03-08
 tags: ['mysql-replication', 'mysql']
 featured: false
+topic: 'MySQL'
+order: 999
 ---
 
   

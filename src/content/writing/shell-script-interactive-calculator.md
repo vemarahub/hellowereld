@@ -4,6 +4,8 @@ description: 'Script : Interactive Calculator Script Name: calculator.sh Script 
 date: 2020-03-24
 tags: ['linux-calculator', 'shell-scripting', 'unix']
 featured: false
+topic: 'Shell Scripting'
+order: 16
 ---
 
   

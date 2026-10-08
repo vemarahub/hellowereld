@@ -4,6 +4,8 @@ description: 'Profiler can be used to setup logging on the mongo instance. Event
 date: 2019-03-24
 tags: ['profiling', 'mongo']
 featured: false
+topic: 'MongoDB'
+order: 11
 ---
 
 Profiler can be used to setup logging on the mongo instance.  

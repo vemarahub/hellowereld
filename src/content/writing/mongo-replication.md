@@ -4,6 +4,8 @@ description: 'Replication in any database is critical for setting up a secondary
 date: 2019-03-25
 tags: ['replication', 'mongo']
 featured: false
+topic: 'MongoDB'
+order: 17
 ---
 
 Replication in any database is critical for setting up a secondary instance for the database instance.In mongo replication serves the purpose of :  

@@ -4,6 +4,8 @@ description: 'When "dsrutil dbname -C status" is used, the "Status" codes are re
 date: 2018-12-11
 tags: ['replication', 'replication-monitoring', 'openedge']
 featured: false
+topic: 'Progress/OpenEdge'
+order: 17
 ---
 
 When "dsrutil dbname -C status" is used, the "Status" codes are returned   

@@ -4,6 +4,8 @@ description: 'Script : Shell script to test the throughput of disk subsystem. Sc
 date: 2020-03-25
 tags: ['shell', 'linux', 'shell-scripting', 'unix']
 featured: false
+topic: 'Shell Scripting'
+order: 14
 ---
 
   

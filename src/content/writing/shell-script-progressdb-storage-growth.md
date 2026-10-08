@@ -4,6 +4,8 @@ description: 'Script : Progress database Storage area size growth Script Name: p
 date: 2020-03-24
 tags: ['extents', 'progress', 'shell-scripting', 'script', 'storage-area']
 featured: false
+topic: 'Progress/OpenEdge'
+order: 999
 ---
 
   

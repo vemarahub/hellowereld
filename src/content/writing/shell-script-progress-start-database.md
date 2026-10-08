@@ -4,6 +4,8 @@ description: 'Script : Progress start a database instance Script Name: startpro.
 date: 2020-03-26
 tags: ['database-start', 'progress', 'shell-scripting']
 featured: false
+topic: 'Progress/OpenEdge'
+order: 999
 ---
 
   

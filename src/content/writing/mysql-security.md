@@ -4,6 +4,8 @@ description: 'Security for a database could be at a physical level,network level
 date: 2019-07-12
 tags: []
 featured: false
+topic: 'MySQL'
+order: 999
 ---
 
 Security for a database could be at a physical level,network level,OS level,File System level or at User account level.The mysql.user table contains  account identification tables,global privilege information,optional usage limitations etc.

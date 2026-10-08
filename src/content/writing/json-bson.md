@@ -4,6 +4,8 @@ description: 'JavaScript Object Notation (JSON) is an open, human and machine-re
 date: 2019-03-12
 tags: ['mysql', 'json', 'bson']
 featured: false
+topic: 'MongoDB'
+order: 3
 ---
 
 JavaScript Object Notation (JSON) is an open, human and machine-readable standard that facilitates data interchange, and along with XML is the main format for data interchange used on the modern web. JSON supports all the basic data types you’d expect: numbers, strings, and boolean values, as well as arrays and hashes.

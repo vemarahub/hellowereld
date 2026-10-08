@@ -4,6 +4,8 @@ description: 'Global Memory Global buffers and caches are allocated on startup o
 date: 2019-07-04
 tags: []
 featured: false
+topic: 'MySQL'
+order: 999
 ---
 
   

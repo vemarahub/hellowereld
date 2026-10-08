@@ -4,6 +4,8 @@ description: 'This blog will walk you through the Progress OpenEdge Database bas
 date: 2017-12-14
 tags: ['openedge-architecture', 'openedge-liscences', 'openedge-history', 'rdbms', 'progress', 'opendge-db']
 featured: false
+topic: 'Progress/OpenEdge'
+order: 1
 ---
 
 This blog will walk you through the Progress OpenEdge Database basics and help you get an idea you need essentially to become a Progress Database Administrator.  

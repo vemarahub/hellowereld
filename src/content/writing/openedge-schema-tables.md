@@ -4,6 +4,8 @@ description: 'What are schema tables?  Schema tables are metadata: i.e data a
 date: 2017-12-14
 tags: ['schema-tables', 'vst', '4gl-queries']
 featured: false
+topic: 'Progress/OpenEdge'
+order: 999
 ---
 
   

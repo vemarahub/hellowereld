@@ -4,6 +4,8 @@ description: 'Progress uses several operating system resources, such as shared m
 date: 2017-12-14
 tags: ['biw', 'processes', 'spin-lock', 'openedge-operating-resources', 'spin', 'apw', 'semaphores', 'shared-memory', 'wdog', 'aiw']
 featured: false
+topic: 'Progress/OpenEdge'
+order: 999
 ---
 
 Progress uses several operating system resources, such as shared memory, memory locks, and processes.You can plan Progress database operations more effectively if you understand these resources.  

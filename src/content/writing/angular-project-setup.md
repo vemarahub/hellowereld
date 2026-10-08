@@ -4,6 +4,8 @@ description: 'The below steps will help to setup a new project in angular js to 
 date: 2020-04-03
 tags: ['angular', 'development', 'java', 'programming']
 featured: false
+topic: 'Angular'
+order: 2
 ---
 
   

@@ -4,6 +4,8 @@ description: 'These are the steps for installing progress openedge RDBMS in a ni
 date: 2017-12-14
 tags: ['liscences', 'openedge', 'progress', 'openedge-installation']
 featured: false
+topic: 'Progress/OpenEdge'
+order: 3
 ---
 
 These are the steps for installing progress openedge RDBMS in a  \*nix OS:  

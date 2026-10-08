@@ -4,6 +4,8 @@ description: 'MySQL is an open-source relational database management system that
 date: 2019-03-12
 tags: ['intro-to-mysql', 'mysql']
 featured: false
+topic: 'MySQL'
+order: 1
 ---
 
   

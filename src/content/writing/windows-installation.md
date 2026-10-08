@@ -4,6 +4,8 @@ description: 'For installing Mongo DB in windows server follow the below steps :
 date: 2019-03-12
 tags: ['mongo', 'mongo-windows-installation']
 featured: false
+topic: 'MongoDB'
+order: 999
 ---
 
 For installing Mongo DB in windows server follow the  below steps :  

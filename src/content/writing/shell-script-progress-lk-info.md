@@ -4,6 +4,8 @@ description: 'Script : Progress database lk file information Script Name: lkinfo
 date: 2020-03-30
 tags: ['lk-file', 'progress', 'shell-scripting']
 featured: false
+topic: 'Progress/OpenEdge'
+order: 999
 ---
 
   

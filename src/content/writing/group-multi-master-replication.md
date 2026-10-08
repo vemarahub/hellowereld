@@ -4,6 +4,8 @@ description: 'Group multi master replication is a master-master replication setu
 date: 2019-03-14
 tags: ['mysql', 'group-master-replication']
 featured: false
+topic: 'MySQL'
+order: 16
 ---
 
 Group multi master replication is a master-master replication setup in MySQL.  

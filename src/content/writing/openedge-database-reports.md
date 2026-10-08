@@ -4,6 +4,8 @@ description: 'OpenEdge provides us a variety of utilities to pull out reports re
 date: 2017-12-14
 tags: ['dbanalys', 'idxanalys', 'reporting', 'tabanalys']
 featured: false
+topic: 'Progress/OpenEdge'
+order: 999
 ---
 
   

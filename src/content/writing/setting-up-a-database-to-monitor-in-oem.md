@@ -4,6 +4,8 @@ description: 'After doing initial configuration and setup , a OEM dashboard on l
 date: 2018-08-06
 tags: ['openedge', 'management-console', 'configuration-oem']
 featured: false
+topic: 'Progress/OpenEdge'
+order: 25
 ---
 
   

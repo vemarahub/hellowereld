@@ -4,6 +4,8 @@ description: 'ABL (Advanced Business Language). Earlier known as Progress 4GL. E
 date: 2018-12-11
 tags: ['openedge', '4gl']
 featured: false
+topic: 'Progress/OpenEdge'
+order: 31
 ---
 
 _ABL (Advanced Business Language). Earlier known as Progress 4GL._

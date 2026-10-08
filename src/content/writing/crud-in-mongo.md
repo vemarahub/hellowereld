@@ -4,6 +4,8 @@ description: 'CRUD corresponds to Create,Read,Update and Delete.Like any other d
 date: 2019-03-19
 tags: ['crud', 'mongo', 'find', 'remove', 'insert', 'update']
 featured: false
+topic: 'MongoDB'
+order: 4
 ---
 
 CRUD corresponds to Create,Read,Update and Delete.Like any other database technology, mongo also supports CRUD operations on it by the use of its various functions for the same.

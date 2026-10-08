@@ -4,6 +4,8 @@ description: 'In MySQL table space can be created to store tables of the MySQL s
 date: 2019-03-13
 tags: ['tablespace', 'mysql']
 featured: false
+topic: 'MySQL'
+order: 9
 ---
 
 In MySQL table space can be created to store tables of the MySQL server.  

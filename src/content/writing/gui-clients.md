@@ -4,6 +4,8 @@ description: 'There are very GUI clients are present in market to manage and adm
 date: 2019-03-07
 tags: ['mysql', 'workbench']
 featured: false
+topic: 'MySQL'
+order: 19
 ---
 
   

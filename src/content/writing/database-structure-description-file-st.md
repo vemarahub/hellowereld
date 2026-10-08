@@ -4,6 +4,8 @@ description: 'The most basic procedure to create a database is using the prostrc
 date: 2017-12-14
 tags: ['area-number', 'openedge', 'progress', 'st-file', 'strcture-description-file', 'area-name', 'sample-structure-file', 'storage-area']
 featured: false
+topic: 'Progress/OpenEdge'
+order: 9
 ---
 
   

@@ -4,6 +4,8 @@ description: 'Sharding is the method of data distribution in a mongo database en
 date: 2019-03-29
 tags: ['sharding', 'mongo']
 featured: false
+topic: 'MongoDB'
+order: 21
 ---
 
 Sharding is the method of data distribution in a mongo database environment where the data can be partitioned into different servers on the basis of "shard keys".  

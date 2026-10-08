@@ -4,6 +4,8 @@ description: 'In the last blog , the dashboard.component.html has been styled by
 date: 2020-04-17
 tags: ['angular', 'angular-material', 'angular-style']
 featured: false
+topic: 'Angular'
+order: 5
 ---
 
 In the last blog , the dashboard.component.html has been styled by using angular material by using mat card and other similar tags.Follow the below steps to implement angular material:  

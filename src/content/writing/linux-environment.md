@@ -4,6 +4,8 @@ description: 'Gnome and the Bash shell are two of the most used interfaces in Li
 date: 2020-02-19
 tags: ['environment', 'linux']
 featured: false
+topic: 'Linux'
+order: 5
 ---
 
   

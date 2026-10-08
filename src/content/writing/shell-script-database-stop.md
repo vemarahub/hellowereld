@@ -4,6 +4,8 @@ description: 'Script : Progress Database Stop Script Name: stoppro.sh Script Fun
 date: 2020-03-26
 tags: ['stop-database', 'progress', 'shell-scripting']
 featured: false
+topic: 'Progress/OpenEdge'
+order: 999
 ---
 
   

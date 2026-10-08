@@ -4,6 +4,8 @@ description: '1.OpenEdge Transparent Data Encryption (TDE) By providing applicat
 date: 2017-12-14
 tags: ['tde', 'utlity-enhancement', 'multi-tenant-database']
 featured: false
+topic: 'Progress/OpenEdge'
+order: 999
 ---
 
   

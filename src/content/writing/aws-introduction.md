@@ -4,6 +4,8 @@ description: 'Essential Characteristics: • On Demand Self-Service • Broad ne
 date: 2019-10-04
 tags: []
 featured: false
+topic: 'AWS'
+order: 1
 ---
 
 **Essential Characteristics:**  

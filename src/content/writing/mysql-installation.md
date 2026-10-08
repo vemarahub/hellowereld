@@ -4,6 +4,8 @@ description: 'What is Installed bin directory ( and sbin in some ) = contains se
 date: 2019-07-08
 tags: []
 featured: false
+topic: 'MySQL'
+order: 999
 ---
 
 **What is Installed**  

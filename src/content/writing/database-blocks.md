@@ -4,6 +4,8 @@ description: 'We have now covered the Database architecture for an Openedge data
 date: 2017-12-14
 tags: ['openedge', 'high-water-mark', 'blocks', 'free-blocks', 'empty-blocks', 'progress']
 featured: false
+topic: 'Progress/OpenEdge'
+order: 8
 ---
 
 We have now covered the Database architecture for an Openedge database and its various components such extents , storage areas etc.Now lets discuss the component where the actual data (records) are stored in the database.  

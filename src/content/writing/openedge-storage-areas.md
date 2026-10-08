@@ -4,6 +4,8 @@ description: 'Storage areas are identified by their name. Each Progress database
 date: 2017-12-14
 tags: ['type-ii', 'openedge', 'progress', 'type-i', 'storage-areas']
 featured: false
+topic: 'Progress/OpenEdge'
+order: 7
 ---
 
 Storage areas are identified by their name. Each Progress database must contain three specific  

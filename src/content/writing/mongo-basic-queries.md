@@ -4,6 +4,8 @@ description: 'Mongo database supports a data driven style of deceleration in the
 date: 2019-03-18
 tags: ['mongo', 'basic-queries']
 featured: false
+topic: 'MongoDB'
+order: 5
 ---
 
 Mongo database supports a data driven style of deceleration in the form of JSON and BSON.To run the various queries in mongo , first start the mongo database instance with either the config file or by using dbpath paramter for mongod.  

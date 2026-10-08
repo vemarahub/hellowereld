@@ -4,6 +4,8 @@ description: 'Once you create/start a database various db related files would be
 date: 2017-12-14
 tags: ['database-files', 'licence-file', 'database-file-extentions', 'sample-structure-file']
 featured: false
+topic: 'Progress/OpenEdge'
+order: 999
 ---
 
   

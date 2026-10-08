@@ -4,6 +4,8 @@ description: 'Script : Progress add new extents Script Name: addextent.sh Script
 date: 2020-03-26
 tags: ['database', 'extents', 'progress', 'shell-scripting']
 featured: false
+topic: 'Progress/OpenEdge'
+order: 999
 ---
 
   

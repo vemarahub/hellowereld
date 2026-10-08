@@ -4,6 +4,8 @@ description: 'Read Preference a.k.a “slaveOk”. In shell - rs.slaveOk() In dr
 date: 2019-03-26
 tags: ['replication', 'write-concern', 'oplog', 'mongo']
 featured: false
+topic: 'MongoDB'
+order: 19
 ---
 
 ### 

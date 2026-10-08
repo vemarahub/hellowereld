@@ -4,6 +4,8 @@ description: 'Script : Progress database area utilization Script Name: progressa
 date: 2020-03-24
 tags: ['progress', 'shell-scripting', 'storage-area']
 featured: false
+topic: 'Progress/OpenEdge'
+order: 999
 ---
 
   

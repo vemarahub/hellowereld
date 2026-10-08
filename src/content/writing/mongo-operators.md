@@ -4,6 +4,8 @@ description: 'Mongo database provides various operators to support the querying 
 date: 2019-03-18
 tags: ['operators', 'updating', 'mongo', 'sorting', 'querying', 'aggregate']
 featured: false
+topic: 'MongoDB'
+order: 6
 ---
 
 Mongo database provides various operators to support the querying on the mongo shell.  

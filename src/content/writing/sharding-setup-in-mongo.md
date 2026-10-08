@@ -4,6 +4,8 @@ description: 'To setup mongo sharding environment we should be ideally having th
 date: 2019-03-29
 tags: ['mongos', 'sharding', 'mongo', 'config']
 featured: false
+topic: 'MongoDB'
+order: 22
 ---
 
 To setup mongo sharding environment we should be ideally having the below setups

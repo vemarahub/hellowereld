@@ -4,6 +4,8 @@ description: 'Once you have created a database , the database would be available
 date: 2017-12-14
 tags: ['database-buffer', 'mn', '-n', '-ma', 'single-user-mde', '-mi', 'pro', 'lock-table', 'startup-parameters', 'mpro', '-b', 'pf-file', 'multi-user-mode']
 featured: false
+topic: 'Progress/OpenEdge'
+order: 999
 ---
 
   

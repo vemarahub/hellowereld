@@ -14,6 +14,10 @@ const writing = defineCollection({
 		tags: z.array(z.string()).default([]),
 		featured: z.boolean().default(false),
 		externalUrl: z.string().url().optional(),
+		// Topic groups posts into a knowledge category (e.g. "MongoDB", "MySQL")
+		topic: z.string().optional(),
+		// Order controls sequence within a topic — lower = earlier
+		order: z.number().default(999),
 	}),
 });
 

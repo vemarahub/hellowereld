@@ -4,6 +4,8 @@ description: 'Following are the steps to follow to setup web service in a progre
 date: 2019-03-22
 tags: ['openedge', 'progress', 'web-service']
 featured: false
+topic: 'Progress/OpenEdge'
+order: 23
 ---
 
 Following are the steps to follow to setup web service in a progress environment:

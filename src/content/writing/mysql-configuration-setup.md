@@ -4,6 +4,8 @@ description: 'This blog will cover the various configuration and setups that can
 date: 2019-07-08
 tags: []
 featured: false
+topic: 'MySQL'
+order: 999
 ---
 
 This blog will cover the various configuration and setups that can be performed over a mysql server for its operations.

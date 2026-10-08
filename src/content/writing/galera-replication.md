@@ -4,6 +4,8 @@ description: 'Galera replication is a third party open source replication utilit
 date: 2019-03-15
 tags: ['mysql-galera', 'mysql', 'group-master-replication']
 featured: false
+topic: 'MySQL'
+order: 15
 ---
 
 Galera replication is a third party open source replication utility for MySQL.Follow the below steps for setting up galera replication on all the three nodes intended for galera replication.:  

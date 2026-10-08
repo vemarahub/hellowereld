@@ -4,6 +4,8 @@ description: 'Instead of setting up each shard replica set and adding them to sh
 date: 2019-03-29
 tags: ['mongo', 'js', 'shard']
 featured: false
+topic: 'MongoDB'
+order: 23
 ---
 
 Instead of setting up each shard replica set and adding them to shard in the mongos shell we can use the below js script and load it to mongos to add mongo shards without much hassle:  

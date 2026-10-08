@@ -4,6 +4,8 @@ description: 'NDB Cluster or Next DB Cluster in MySQL is cluster management in M
 date: 2019-03-12
 tags: ['mysql', 'mysql-ndb-cluster']
 featured: false
+topic: 'MySQL'
+order: 17
 ---
 
   

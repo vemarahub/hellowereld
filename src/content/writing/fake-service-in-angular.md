@@ -4,6 +4,8 @@ description: 'To call a fake rest api service from our angular application , we 
 date: 2020-04-16
 tags: ['angular', 'faker-service', 'rest-api']
 featured: false
+topic: 'Angular'
+order: 6
 ---
 
   

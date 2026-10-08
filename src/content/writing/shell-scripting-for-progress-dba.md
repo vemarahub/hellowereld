@@ -4,6 +4,8 @@ description: 'Now that we are familiar with the basic unix commands which would 
 date: 2017-12-14
 tags: ['shell-scripting', 'script', 'commands']
 featured: false
+topic: 'Shell Scripting'
+order: 999
 ---
 
 Now that we are familiar with the basic unix commands which would be required by a Progress DBA at various troubleshooting and day to day activity scenarios while working on a non-windows operating server like unix,solaris,linux,AIX etc, the next step for a progress DBA is to acquire ability to write shell scripts for the various activities he need to perform.  

@@ -4,6 +4,8 @@ description: 'Openedge Replication is a feature/product from Progress that provi
 date: 2017-12-14
 tags: ['source-db', 'replication', 'after-image', 'master', 'empty', 'target-db', 'replication-server', 'slave', 'repl.properties', 'replication-agent', 'busy', 'locked', 'full']
 featured: false
+topic: 'Progress/OpenEdge'
+order: 999
 ---
 
   

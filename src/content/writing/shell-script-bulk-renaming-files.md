@@ -4,6 +4,8 @@ description: 'Script : Bulk-Renaming Files Script Name: bulkrename.sh Script Fun
 date: 2020-03-24
 tags: ['file-commands', 'linux', 'shell-scripting']
 featured: false
+topic: 'Shell Scripting'
+order: 13
 ---
 
   

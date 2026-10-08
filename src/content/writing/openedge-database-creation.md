@@ -4,6 +4,8 @@ description: 'Since we are done with installation of the Progress Openedge produ
 date: 2017-12-14
 tags: ['prorest', 'openedge', 'prodb', 'data-dictionary', 'database-creation', 'progress', 'prostrct', 'procopy']
 featured: false
+topic: 'Progress/OpenEdge'
+order: 4
 ---
 
   

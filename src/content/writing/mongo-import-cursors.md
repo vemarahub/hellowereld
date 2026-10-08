@@ -4,6 +4,8 @@ description: 'Mongo database supports data to be imported to the database in the
 date: 2019-03-12
 tags: ['find()', 'mongo', 'mongoimport', 'mongo-cursor']
 featured: false
+topic: 'MongoDB'
+order: 9
 ---
 
 Mongo database supports data to be imported to the database in the form of csv,tsv and json file formats.Below command can be used to import the file containing the data to be loaded to your database at one go:  

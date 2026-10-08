@@ -4,6 +4,8 @@ description: 'MySQL Server has different types of distribution starting from the
 date: 2019-07-05
 tags: []
 featured: false
+topic: 'MySQL'
+order: 999
 ---
 
 MySQL Server has different types of distribution starting from the Original MySQL from Oracle who are the current owners of MySQL.In 2010 Oracle had merged their dev team for MySQL with innoDB team and have many mirror sites for downloading the official core product.  

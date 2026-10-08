@@ -4,6 +4,8 @@ description: 'Point in Time recovery is the recovery mechanism where we can reco
 date: 2019-03-13
 tags: ['mysql', 'mysql-point-in-time-recovery', 'recovery', 'bin-log']
 featured: false
+topic: 'MySQL'
+order: 10
 ---
 
 Point in Time recovery is the recovery mechanism where we can recover a lost transaction back to our MySQL server.The transaction here might be a database or a table or some data which might have got lost during any power outage or by human error.  

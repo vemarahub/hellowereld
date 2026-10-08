@@ -4,6 +4,8 @@ description: 'For a statement based replication oplog file is used to apply all 
 date: 2019-03-25
 tags: ['mongo', 'replication-steps']
 featured: false
+topic: 'MongoDB'
+order: 18
 ---
 
 For a statement based replication oplog file is used to apply all the transaction on the primary node to the secondary node.The default value for oplog size(MB) is 5% of free space on disk.  

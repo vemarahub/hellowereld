@@ -4,6 +4,8 @@ description: 'Script : Displaying a File with Additional Information Script Name
 date: 2020-03-24
 tags: ['shells', 'file-commands', 'shell-scripting', 'unix']
 featured: false
+topic: 'Shell Scripting'
+order: 11
 ---
 
   

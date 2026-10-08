@@ -4,6 +4,8 @@ description: 'To install mongo on a red hat VM , download the rpm files from mon
 date: 2019-03-20
 tags: ['installation', 'mongo', 'vm', 'rhel']
 featured: false
+topic: 'MongoDB'
+order: 26
 ---
 
 To install mongo on a red hat VM , download the rpm files from mongo website according to the RHEL version you are using and the mongo version you want:

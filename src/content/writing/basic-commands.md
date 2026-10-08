@@ -4,6 +4,8 @@ description: 'Below are the most commonly used linux commands and its purpose: &
 date: 2020-02-21
 tags: ['linux-commands']
 featured: false
+topic: 'Linux'
+order: 7
 ---
 
   

@@ -4,6 +4,8 @@ description: 'Security is a major aspect for any database,it is required to have
 date: 2017-12-14
 tags: []
 featured: false
+topic: 'Progress/OpenEdge'
+order: 999
 ---
 
 Security is a major aspect for any database,it is required to have a user/pass credential validation for every connection made to the database to provide a basic security to the data in the database.

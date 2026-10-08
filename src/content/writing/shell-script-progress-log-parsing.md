@@ -4,6 +4,8 @@ description: 'Script : Shell script to parse the progress database log file Scri
 date: 2020-03-25
 tags: ['database-log', 'progress', 'shell-scripting']
 featured: false
+topic: 'Progress/OpenEdge'
+order: 999
 ---
 
   

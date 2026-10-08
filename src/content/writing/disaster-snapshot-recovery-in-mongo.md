@@ -4,6 +4,8 @@ description: 'Say for in a database maintenance activity we drop a collection by
 date: 2020-05-11
 tags: []
 featured: false
+topic: 'MongoDB'
+order: 999
 ---
 
   

@@ -1,175 +1,166 @@
 ---
-import { getCollection } from "astro:content";
-import Layout from "../../layouts/Layout.astro";
-import { resolvePostLink } from "../../lib/content";
+import { getCollection } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
+import { resolvePostLink } from '../../lib/content';
 
-const posts = await getCollection("writing");
+const allPosts = await getCollection('writing');
 
-const sortedPosts = posts.sort(
-	(a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
-);
+// Group by topic, sort within each topic by order then title
+const TOPIC_ORDER = [
+  'MongoDB',
+  'MySQL',
+  'Progress/OpenEdge',
+  'Shell Scripting',
+  'Linux',
+  'Angular',
+  'AWS',
+  'General',  // catch-all for uncategorized
+];
+
+const postsByTopic = new Map<string, typeof allPosts>();
+
+for (const post of allPosts) {
+  const topic = post.data.topic || 'General';
+  if (!postsByTopic.has(topic)) postsByTopic.set(topic, []);
+  postsByTopic.get(topic)!.push(post);
+}
+
+// Sort posts within each topic by order ascending, then title
+for (const [topic, posts] of postsByTopic) {
+  posts.sort((a, b) => {
+    const orderDiff = (a.data.order ?? 999) - (b.data.order ?? 999);
+    return orderDiff !== 0 ? orderDiff : a.data.title.localeCompare(b.data.title);
+  });
+}
+
+// Order topics by TOPIC_ORDER
+const sortedTopics = TOPIC_ORDER.filter(t => postsByTopic.has(t));
 ---
 
-<Layout
-	title="Writing — Rajesh Nair"
-	description="Articles, tutorials and technical writing by Rajesh Nair."
->
-	<section class="page">
-		<header class="intro">
-			<p class="eyebrow">Writing</p>
-			<h1>Things I've learned along the way.</h1>
-			<p>
-				Technical articles, tutorials and notes from building software,
-				working with databases and exploring new technologies.
-			</p>
-		</header>
+<Layout title="Writing — Rajesh Nair" description="Technical articles grouped by topic">
+  <div class="container">
+    <header class="page-header">
+      <h1>Writing</h1>
+      <p>Technical articles, tutorials, and notes organized by topic.</p>
+    </header>
 
-		<div class="posts">
-			{
-				sortedPosts.length === 0 ? (
-					<p class="empty">No articles published yet.</p>
-				) : (
-					sortedPosts.map((post) => {
-						const { href, isExternal } = resolvePostLink(post);
-						return (
-							<article class="post">
-								<div class="meta">
-									{post.data.date.toLocaleDateString("en-GB", {
-										year: "numeric",
-										month: "short",
-										day: "numeric",
-									})}
-								</div>
-
-								<h2>
-									{isExternal ? (
-										<a
-											href={href}
-											target="_blank"
-											rel="noopener noreferrer"
-										>
-											{post.data.title}<span aria-hidden="true"> ↗</span>
-										</a>
-									) : (
-										<a href={href}>{post.data.title}</a>
-									)}
-								</h2>
-
-								<p>{post.data.description}</p>
-
-								{post.data.tags.length > 0 && (
-									<div class="tags">
-										{post.data.tags.map((tag) => (
-											<span>{tag}</span>
-										))}
-									</div>
-								)}
-							</article>
-						);
-					})
-				)
-			}
-		</div>
-	</section>
+    {sortedTopics.length === 0 ? (
+      <p class="empty">No articles published yet.</p>
+    ) : (
+      sortedTopics.map(topic => {
+        const posts = postsByTopic.get(topic)!;
+        return (
+          <section class="topic-section">
+            <h2 class="topic-heading">{topic}</h2>
+            <ol class="post-list">
+              {posts.map(post => {
+                const { href, isExternal } = resolvePostLink(post);
+                return (
+                  <li>
+                    <a
+                      href={href}
+                      target={isExternal ? '_blank' : undefined}
+                      rel={isExternal ? 'noopener noreferrer' : undefined}
+                      class="post-link"
+                    >
+                      <span class="post-title">
+                        {post.data.title}
+                        {isExternal && <span class="external-indicator" aria-hidden="true">↗</span>}
+                      </span>
+                    </a>
+                  </li>
+                );
+              })}
+            </ol>
+          </section>
+        );
+      })
+    )}
+  </div>
 </Layout>
 
 <style>
-	.page {
-		max-width: var(--container-lg);
-		margin: 0 auto;
-		padding: var(--space-20) var(--space-6);
-	}
+  .container {
+    max-width: var(--container-lg);
+    margin: 0 auto;
+    padding: var(--space-12) var(--space-4);
+  }
 
-	.intro {
-		max-width: 700px;
-		margin-bottom: var(--space-16);
-	}
+  .page-header {
+    margin-bottom: var(--space-12);
+  }
 
-	.eyebrow {
-		margin: 0 0 var(--space-3);
-		font-size: var(--text-sm);
-		font-weight: 700;
-		text-transform: uppercase;
-		letter-spacing: var(--tracking-wide);
-		color: var(--color-muted);
-	}
+  .page-header h1 {
+    font-size: var(--text-3xl);
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: var(--space-4);
+  }
 
-	h1 {
-		margin: 0 0 var(--space-4);
-		font-size: clamp(2.5rem, 6vw, 4.5rem);
-		line-height: var(--leading-tight);
-		letter-spacing: var(--tracking-tight);
-	}
+  .page-header p {
+    font-size: var(--text-lg);
+    color: var(--color-secondary);
+    max-width: 60ch;
+  }
 
-	.intro > p:last-child {
-		margin: 0;
-		font-size: var(--text-lg);
-		line-height: var(--leading-relaxed);
-		color: var(--color-secondary);
-	}
+  .topic-section {
+    margin-bottom: var(--space-12);
+  }
 
-	.posts {
-		display: grid;
-		gap: 0;
-		border-top: 1px solid var(--color-border);
-	}
+  .topic-heading {
+    font-size: var(--text-xl);
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: var(--space-6);
+    padding-bottom: var(--space-3);
+    border-bottom: 1px solid var(--color-border);
+  }
 
-	.post {
-		padding: var(--space-8) 0;
-		border-bottom: 1px solid var(--color-border);
-	}
+  .post-list {
+    list-style: decimal-leading-zero;
+    padding-left: var(--space-6);
+    display: grid;
+    gap: var(--space-4);
+  }
 
-	.meta {
-		margin-bottom: var(--space-3);
-		font-size: var(--text-sm);
-		color: var(--color-muted);
-	}
+  .post-list li {
+    line-height: 1.6;
+  }
 
-	h2 {
-		margin: 0 0 var(--space-3);
-		font-size: var(--text-2xl);
-	}
+  .post-link {
+    color: var(--color-text);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+  }
 
-	h2 a {
-		color: var(--color-text);
-		text-decoration: none;
-	}
+  .post-link:hover {
+    color: var(--color-accent);
+  }
 
-	h2 a:hover {
-		color: var(--color-accent-dark);
-	}
+  .post-title {
+    font-size: var(--text-base);
+  }
 
-	h2 a:focus-visible {
-		outline: 2px solid var(--color-accent-dark);
-		outline-offset: 2px;
-		border-radius: var(--radius-sm);
-	}
+  .external-indicator {
+    margin-left: var(--space-1);
+    font-size: 0.85em;
+    vertical-align: super;
+  }
 
-	.post p {
-		margin: 0;
-		max-width: 700px;
-		line-height: var(--leading-relaxed);
-		color: var(--color-secondary);
-	}
+  .empty {
+    color: var(--color-muted);
+    font-style: italic;
+    padding: var(--space-8);
+    text-align: center;
+  }
 
-	.tags {
-		display: flex;
-		flex-wrap: wrap;
-		gap: var(--space-2);
-		margin-top: var(--space-4);
-	}
+  @media (max-width: 700px) {
+    .page-header h1 {
+      font-size: var(--text-2xl);
+    }
 
-	.tags span {
-		padding: 0.35rem 0.65rem;
-		border: 1px solid var(--color-border);
-		border-radius: var(--radius-full);
-		font-size: var(--text-xs);
-		color: var(--color-secondary);
-	}
-
-	.empty {
-		padding: var(--space-12) 0;
-		color: var(--color-muted);
-		font-size: var(--text-lg);
-	}
+    .topic-heading {
+      font-size: var(--text-lg);
+    }
+  }
 </style>

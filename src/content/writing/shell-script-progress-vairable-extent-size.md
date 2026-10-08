@@ -4,6 +4,8 @@ description: 'Script : Progress check Variable Extent Size Script Name: checkext
 date: 2020-03-26
 tags: ['extents', 'progress', 'shell-scripting']
 featured: false
+topic: 'Progress/OpenEdge'
+order: 999
 ---
 
   

@@ -4,6 +4,8 @@ description: 'In MySQL administration ,root access is critical to perform variou
 date: 2019-03-13
 tags: ['mysql', 'reset-root-mysql']
 featured: false
+topic: 'MySQL'
+order: 20
 ---
 
   

@@ -4,6 +4,8 @@ description: 'Storage Engine determines data file format & format of indexes and
 date: 2019-03-21
 tags: ['mmapv1', 'mongo', 'storage-engine']
 featured: false
+topic: 'MongoDB'
+order: 14
 ---
 
   

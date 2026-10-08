@@ -4,6 +4,8 @@ description: 'Using the Bourne Again Shell The Bourne Again Shell is usually jus
 date: 2020-02-19
 tags: ['shells', 'linux', 'bash']
 featured: false
+topic: 'Shell Scripting'
+order: 999
 ---
 
 **Using the Bourne Again Shell**   

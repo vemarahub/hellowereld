@@ -4,6 +4,8 @@ description: 'Now since we are done with the history and installation of the Ope
 date: 2017-12-14
 tags: ['openedge-architecture', 'extents', 'openedge', 'progress', 'storage-area']
 featured: false
+topic: 'Progress/OpenEdge'
+order: 5
 ---
 
   

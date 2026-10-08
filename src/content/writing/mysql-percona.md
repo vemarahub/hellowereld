@@ -4,6 +4,8 @@ description: 'Percona is a third party tool used for taking physical backup of t
 date: 2019-03-07
 tags: ['mysql', 'percona']
 featured: false
+topic: 'MySQL'
+order: 13
 ---
 
   

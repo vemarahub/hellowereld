@@ -4,6 +4,8 @@ description: 'The logical dump of all database can be done using mysqldump utili
 date: 2019-03-07
 tags: ['mysql', 'mysql-restore', 'mysql-dump']
 featured: false
+topic: 'MySQL'
+order: 14
 ---
 
   

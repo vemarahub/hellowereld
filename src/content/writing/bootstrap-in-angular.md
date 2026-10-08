@@ -4,6 +4,8 @@ description: 'To implement bootstrap in an angular application after creating it
 date: 2020-04-10
 tags: ['angular', 'ui', 'bootstrap']
 featured: false
+topic: 'Angular'
+order: 4
 ---
 
   

@@ -4,6 +4,8 @@ description: 'We can start multiple MySQL instance in the same server by running
 date: 2019-03-16
 tags: ['multiple-instances', 'mysql']
 featured: false
+topic: 'MySQL'
+order: 21
 ---
 
 We can start multiple MySQL instance in the same server by running them in different ports.  

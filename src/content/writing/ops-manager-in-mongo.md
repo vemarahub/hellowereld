@@ -4,6 +4,8 @@ description: 'Ops Manager is a monitoring and administering web based tool provi
 date: 2019-04-17
 tags: ['ops-manager']
 featured: false
+topic: 'MongoDB'
+order: 999
 ---
 
 Ops Manager is a monitoring and administering web based tool provided by Mongo which would provide a single click provisioning for scaling,upgrades and administering tasks.  

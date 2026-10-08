@@ -4,6 +4,8 @@ description: 'Wired tiger is a pluggable storage engine with following features:
 date: 2019-03-21
 tags: ['mongo', 'wired-tiger']
 featured: false
+topic: 'MongoDB'
+order: 13
 ---
 
 Wired tiger is a pluggable storage engine with following features:  

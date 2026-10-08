@@ -4,6 +4,8 @@ description: 'To login to a particular database use the below command: mysql -u 
 date: 2019-03-07
 tags: ['mysql', 'mysql-commands']
 featured: false
+topic: 'MySQL'
+order: 6
 ---
 
   

@@ -4,6 +4,8 @@ description: 'Prerequisites: DBA to make sure Java already installed and we have
 date: 2018-05-14
 tags: ['liscences', 'progress', 'windows', 'openedge-installation']
 featured: false
+topic: 'Progress/OpenEdge'
+order: 2
 ---
 
   

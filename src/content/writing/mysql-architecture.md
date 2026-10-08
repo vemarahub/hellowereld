@@ -4,6 +4,8 @@ description: 'MySQL follows a client server architecture where the mysqld progra
 date: 2019-07-02
 tags: []
 featured: false
+topic: 'MySQL'
+order: 999
 ---
 
 MySQL follows a client server architecture where the mysqld programs which are the core programs of the database system act as the server and various agent programs like mysql act as client which communicates with the server using a communication protocol for example a socket connection for mysql , tcp/ip connection for a php client, namedpipe communication protocol for a mysqldump etc.

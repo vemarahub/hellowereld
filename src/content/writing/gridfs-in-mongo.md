@@ -4,6 +4,8 @@ description: 'GridFS in mongo can be used to store and retrieve huge files of ty
 date: 2019-04-30
 tags: ['mongo', 'gridfs']
 featured: false
+topic: 'MongoDB'
+order: 15
 ---
 
 GridFS in mongo can be used to store and retrieve huge files of type image,videos,audios etc in the mongo database in the form of collection by considering the mongo database as a filesystem.  

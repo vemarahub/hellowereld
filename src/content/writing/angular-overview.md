@@ -4,6 +4,8 @@ description: 'Angular JS components are a below:'
 date: 2020-04-09
 tags: ['angular', 'angular-overview']
 featured: false
+topic: 'Angular'
+order: 1
 ---
 
 ### Angular JS components are a below:

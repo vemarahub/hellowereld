@@ -4,6 +4,8 @@ description: 'The user management of a progress Openedge database refers to the 
 date: 2018-08-06
 tags: ['sqlexplorer', 'create-user', 'openedge', 'user-management']
 featured: false
+topic: 'Progress/OpenEdge'
+order: 15
 ---
 
   

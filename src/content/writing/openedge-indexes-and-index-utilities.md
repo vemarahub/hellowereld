@@ -4,6 +4,8 @@ description: 'What is an index ? Database index works like a book index. To look
 date: 2017-12-14
 tags: ['idxdeactivate', 'index', 'idxbuild', 'utilities', 'idxactivate']
 featured: false
+topic: 'Progress/OpenEdge'
+order: 10
 ---
 
   

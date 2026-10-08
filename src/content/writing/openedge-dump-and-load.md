@@ -4,6 +4,8 @@ description: 'The Openendge RDBMS database, as we know ,would comprise mainly of
 date: 2017-12-14
 tags: ['.bd', '.df', 'data-dump', 'data-dictionary', '.d', 'data-load', 'df-file', 'idxbuild']
 featured: false
+topic: 'Progress/OpenEdge'
+order: 13
 ---
 
   

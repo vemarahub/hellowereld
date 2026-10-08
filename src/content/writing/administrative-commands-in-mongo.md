@@ -4,6 +4,8 @@ description: 'The following are some of the commands that can be used for databa
 date: 2019-03-20
 tags: ['mongo', 'mongo-commands']
 featured: false
+topic: 'MongoDB'
+order: 10
 ---
 
 The following are some of the commands that can be used for database administration for mongo.  

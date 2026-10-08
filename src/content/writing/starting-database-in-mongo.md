@@ -4,6 +4,8 @@ description: 'To start the mongo database server on the linux machine with speci
 date: 2019-03-12
 tags: ['mongo-setup', 'mongo', 'mongo-startup']
 featured: false
+topic: 'MongoDB'
+order: 2
 ---
 
   

@@ -4,6 +4,8 @@ description: 'To install linux follow the below steps: To start the installation
 date: 2020-02-21
 tags: ['installation', 'linux']
 featured: false
+topic: 'Linux'
+order: 2
 ---
 
 To install linux follow the below steps:  

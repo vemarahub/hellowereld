@@ -4,6 +4,8 @@ description: 'The replication process is a real time syncing of the master and s
 date: 2017-12-14
 tags: ['openedge-replication-monitoring', 'replication-commands', 'dsrutil']
 featured: false
+topic: 'Progress/OpenEdge'
+order: 20
 ---
 
   

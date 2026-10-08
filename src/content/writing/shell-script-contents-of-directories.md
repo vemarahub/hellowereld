@@ -4,6 +4,8 @@ description: 'Script : Displaying the Contents of Directories Script Name: forma
 date: 2020-03-24
 tags: ['file-commands', 'shell-scripting', 'script', 'unix']
 featured: false
+topic: 'Shell Scripting'
+order: 12
 ---
 
   

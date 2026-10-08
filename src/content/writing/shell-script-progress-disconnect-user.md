@@ -4,6 +4,8 @@ description: 'Script : Disconnect user from database Script Name: disconnect.sh 
 date: 2020-03-25
 tags: ['database-user-disconnect', 'progress', 'shell-scripting']
 featured: false
+topic: 'Progress/OpenEdge'
+order: 999
 ---
 
   

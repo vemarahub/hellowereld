@@ -4,6 +4,8 @@ description: 'Since the most used operating system for a progress database produ
 date: 2017-12-14
 tags: ['aix', 'file-commands', 'permsission', 'linux', 'process-management-commands', 'shortcuts', 'system-commands', 'compression', 'solaris', 'unix', 'commands']
 featured: false
+topic: 'Linux'
+order: 999
 ---
 
 Since the most used operating system for a progress database product is linux/unix/solaris as compared to windows OS, a Progress DBA is expected to have some basic knowledge of unix commands which would be helpful for the dba to troubleshoot daily basis issues.  

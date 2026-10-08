@@ -4,6 +4,8 @@ description: 'Explain plan can be used on a collection to get an explainable obj
 date: 2019-03-22
 tags: ['mongo', 'explain-plan']
 featured: false
+topic: 'MongoDB'
+order: 8
 ---
 
 Explain plan can be used on a collection to get an explainable object.  

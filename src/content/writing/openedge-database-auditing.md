@@ -4,6 +4,8 @@ description: 'Auditing goal can be achieved through below steps: 1. Enabling Aud
 date: 2017-12-14
 tags: ['audit-enabling', 'policy-import', 'audit-policy', 'policy-export', 'openedge-database-auditing']
 featured: false
+topic: 'Progress/OpenEdge'
+order: 14
 ---
 
   
