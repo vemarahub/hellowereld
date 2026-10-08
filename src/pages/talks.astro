@@ -1,0 +1,197 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../layouts/Layout.astro";
+import { sortByDateDescending } from "../lib/content";
+
+const allTalks = await getCollection("talks");
+const sorted = sortByDateDescending(allTalks);
+---
+
+<Layout
+	title="Talks — HelloWereld"
+	description="Conference talks, community sessions and workshops."
+>
+	<section class="page">
+		<header class="intro">
+			<p class="eyebrow">Talks</p>
+			<h1>Talks</h1>
+			<p>
+				Public speaking, conference sessions and community workshops. Topics
+				span backend engineering, databases, developer experience and the
+				craft of sharing knowledge with others.
+			</p>
+		</header>
+
+		<div class="talks">
+			{
+				sorted.length === 0 ? (
+					<p class="empty">No talks listed yet.</p>
+				) : (
+					sorted.map((talk) => (
+						<article class="talk">
+							<div class="meta">
+								<span class="event">{talk.data.event}</span>
+								<span class="sep" aria-hidden="true">·</span>
+								<time datetime={talk.data.date.toISOString()}>
+									{talk.data.date.toLocaleDateString("en-GB", {
+										year: "numeric",
+										month: "short",
+										day: "numeric",
+									})}
+								</time>
+							</div>
+
+							<h2>{talk.data.title}</h2>
+
+							<p>{talk.data.description}</p>
+
+							{(talk.data.videoUrl || talk.data.slidesUrl) && (
+								<div class="links">
+									{talk.data.videoUrl && (
+										<a
+											href={talk.data.videoUrl}
+											target="_blank"
+											rel="noopener noreferrer"
+										>
+											Watch video →
+										</a>
+									)}
+									{talk.data.slidesUrl && (
+										<a
+											href={talk.data.slidesUrl}
+											target="_blank"
+											rel="noopener noreferrer"
+										>
+											View slides →
+										</a>
+									)}
+								</div>
+							)}
+						</article>
+					))
+				)
+			}
+		</div>
+	</section>
+</Layout>
+
+<style>
+	.page {
+		max-width: var(--container-lg);
+		margin: 0 auto;
+		padding: var(--space-20) var(--space-6);
+	}
+
+	.intro {
+		max-width: 700px;
+		margin-bottom: var(--space-16);
+	}
+
+	.eyebrow {
+		margin: 0 0 var(--space-3);
+		font-size: var(--text-sm);
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: var(--tracking-wide);
+		color: var(--color-muted);
+	}
+
+	h1 {
+		margin: 0 0 var(--space-4);
+		font-size: clamp(2.5rem, 6vw, 4.5rem);
+		line-height: var(--leading-tight);
+		letter-spacing: var(--tracking-tight);
+	}
+
+	.intro > p:last-child {
+		margin: 0;
+		font-size: var(--text-lg);
+		line-height: var(--leading-relaxed);
+		color: var(--color-secondary);
+	}
+
+	.talks {
+		display: grid;
+		gap: 0;
+		border-top: 1px solid var(--color-border);
+	}
+
+	.talk {
+		padding: var(--space-8) 0;
+		border-bottom: 1px solid var(--color-border);
+	}
+
+	.meta {
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: var(--space-2);
+		margin-bottom: var(--space-3);
+		font-size: var(--text-sm);
+		color: var(--color-muted);
+	}
+
+	.event {
+		font-weight: 600;
+		color: var(--color-secondary);
+	}
+
+	.sep {
+		color: var(--color-border-strong);
+	}
+
+	h2 {
+		margin: 0 0 var(--space-3);
+		font-size: var(--text-2xl);
+		color: var(--color-text);
+	}
+
+	.talk > p {
+		margin: 0;
+		max-width: 700px;
+		line-height: var(--leading-relaxed);
+		color: var(--color-secondary);
+	}
+
+	.links {
+		display: flex;
+		flex-wrap: wrap;
+		gap: var(--space-6);
+		margin-top: var(--space-4);
+	}
+
+	.links a {
+		color: var(--color-text);
+		font-size: var(--text-sm);
+		font-weight: 600;
+		text-decoration: none;
+		transition: opacity var(--transition-fast);
+	}
+
+	.links a:hover {
+		text-decoration: underline;
+		text-underline-offset: 3px;
+	}
+
+	.links a:focus-visible {
+		outline: 2px solid var(--color-accent-dark);
+		outline-offset: 2px;
+		border-radius: var(--radius-sm);
+	}
+
+	.empty {
+		padding: var(--space-12) 0;
+		color: var(--color-muted);
+		font-size: var(--text-lg);
+	}
+
+	@media (max-width: 700px) {
+		.page {
+			padding: var(--space-12) var(--space-4);
+		}
+
+		h1 {
+			font-size: clamp(2rem, 10vw, 3rem);
+		}
+	}
+</style>

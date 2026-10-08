@@ -262,7 +262,7 @@ import Layout from "../layouts/Layout.astro";
 
         .eyebrow {
                 margin: 0 0 1rem;
-                color: #737373;
+                color: var(--color-muted);
                 font-size: 0.8rem;
                 font-weight: 700;
                 letter-spacing: 0.12em;
@@ -279,7 +279,7 @@ import Layout from "../layouts/Layout.astro";
         .lead {
                 margin: 2rem 0 0;
                 max-width: 720px;
-                color: #525252;
+                color: var(--color-secondary);
                 font-size: 1.25rem;
                 line-height: 1.7;
         }
@@ -296,7 +296,7 @@ import Layout from "../layouts/Layout.astro";
 
         .story {
                 max-width: 720px;
-                border-top: 1px solid #e5e5e5;
+                border-top: 1px solid var(--color-border);
                 padding-top: 2rem;
         }
 
@@ -305,12 +305,12 @@ import Layout from "../layouts/Layout.astro";
         }
 
         .story p {
-                color: #525252;
+                color: var(--color-secondary);
                 line-height: 1.8;
         }
 
         .timeline {
-                border-top: 1px solid #e5e5e5;
+                border-top: 1px solid var(--color-border);
                 padding-top: 2rem;
         }
 
@@ -319,7 +319,7 @@ import Layout from "../layouts/Layout.astro";
         }
 
         .timeline-list {
-                border-left: 1px solid #d4d4d4;
+                border-left: 1px solid var(--color-border-strong);
                 margin-left: 7rem;
         }
 
@@ -339,11 +339,11 @@ import Layout from "../layouts/Layout.astro";
                 width: 9px;
                 height: 9px;
                 border-radius: 50%;
-                background: #171717;
+                background: var(--color-text);
         }
 
         .date {
-                color: #737373;
+                color: var(--color-muted);
                 font-size: 0.9rem;
                 line-height: 1.5;
         }
@@ -355,14 +355,14 @@ import Layout from "../layouts/Layout.astro";
 
         .role {
                 margin: 0.35rem 0 0.75rem;
-                color: #525252;
+                color: var(--color-secondary);
                 font-weight: 600;
         }
 
         .timeline-item p:not(.role) {
                 margin: 0;
                 max-width: 600px;
-                color: #737373;
+                color: var(--color-muted);
                 line-height: 1.7;
         }
 
@@ -373,13 +373,13 @@ import Layout from "../layouts/Layout.astro";
         }
 
         .today {
-                border-top: 1px solid #e5e5e5;
+                border-top: 1px solid var(--color-border);
                 padding-top: 2rem;
         }
 
         .today > p:not(.eyebrow) {
                 max-width: 650px;
-                color: #525252;
+                color: var(--color-secondary);
                 line-height: 1.7;
         }
 
@@ -392,13 +392,13 @@ import Layout from "../layouts/Layout.astro";
 
         .focus-grid > div {
                 padding: 1.5rem;
-                border: 1px solid #e5e5e5;
+                border: 1px solid var(--color-border);
                 border-radius: 12px;
         }
 
         .focus-grid p {
                 margin-bottom: 0;
-                color: #737373;
+                color: var(--color-muted);
                 line-height: 1.6;
         }
 

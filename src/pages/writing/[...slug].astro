@@ -46,9 +46,20 @@ const { Content } = await render(post);
 			)}
 		</header>
 
-		<div class="content">
-			<Content />
-		</div>
+		{post.data.externalUrl ? (
+			<div class="external-notice">
+				<p>This article was originally published externally.</p>
+				<a
+					href={post.data.externalUrl}
+					target="_blank"
+					rel="noopener noreferrer"
+				>Read the original article ↗</a>
+			</div>
+		) : (
+			<div class="content">
+				<Content />
+			</div>
+		)}
 	</article>
 </Layout>
 
@@ -61,14 +72,14 @@ const { Content } = await render(post);
 
 	.back {
 		display: inline-block;
-		margin-bottom: 3rem;
-		color: #737373;
+		margin-bottom: var(--space-12);
+		color: var(--color-muted);
 		text-decoration: none;
-		font-size: 0.9rem;
+		font-size: var(--text-sm);
 	}
 
 	.back:hover {
-		color: #171717;
+		color: var(--color-text);
 	}
 
 	header {
@@ -76,9 +87,9 @@ const { Content } = await render(post);
 	}
 
 	.date {
-		margin: 0 0 1rem;
-		font-size: 0.9rem;
-		color: #737373;
+		margin: 0 0 var(--space-4);
+		font-size: var(--text-sm);
+		color: var(--color-muted);
 	}
 
 	h1 {
@@ -90,9 +101,9 @@ const { Content } = await render(post);
 
 	.description {
 		margin: 0;
-		font-size: 1.2rem;
-		line-height: 1.7;
-		color: #525252;
+		font-size: var(--text-xl);
+		line-height: var(--leading-relaxed);
+		color: var(--color-secondary);
 	}
 
 	.tags {
@@ -104,10 +115,10 @@ const { Content } = await render(post);
 
 	.tags span {
 		padding: 0.35rem 0.65rem;
-		border: 1px solid #e5e5e5;
-		border-radius: 999px;
-		font-size: 0.8rem;
-		color: #525252;
+		border: 1px solid var(--color-border);
+		border-radius: var(--radius-full);
+		font-size: var(--text-xs);
+		color: var(--color-secondary);
 	}
 
 	.content {
@@ -140,15 +151,39 @@ const { Content } = await render(post);
 
 	.content :global(code) {
 		padding: 0.15rem 0.35rem;
-		background: #f5f5f5;
-		border-radius: 4px;
+		background: var(--color-bg);
+		border-radius: var(--radius-sm);
 		font-size: 0.9em;
 	}
 
 	.content :global(pre) {
-		padding: 1.25rem;
+		padding: var(--space-5);
 		overflow-x: auto;
-		background: #f5f5f5;
-		border-radius: 8px;
+		background: var(--color-bg);
+		border-radius: var(--radius-md);
+	}
+
+	.external-notice {
+		margin-top: var(--space-8);
+		padding: var(--space-6);
+		border: 1px solid var(--color-border);
+		border-radius: var(--radius-md);
+		background: var(--color-bg);
+		font-size: var(--text-base);
+		line-height: var(--leading-normal);
+	}
+
+	.external-notice p {
+		margin: 0 0 var(--space-4);
+		color: var(--color-secondary);
+	}
+
+	.external-notice a {
+		color: var(--color-text);
+		font-weight: 500;
+	}
+
+	.external-notice a:hover {
+		color: var(--color-muted);
 	}
 </style>

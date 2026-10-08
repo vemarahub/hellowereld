@@ -12,7 +12,8 @@
     "astro": "astro",
     "generate-types": "wrangler types",
     "deploy": "astro build && wrangler deploy",
-    "cf-typegen": "wrangler types"
+    "cf-typegen": "wrangler types",
+    "test": "vitest --run"
   },
   "dependencies": {
     "@astrojs/cloudflare": "^14.3.4",
@@ -20,6 +21,8 @@
   },
   "devDependencies": {
     "@types/node": "^26.6.4",
+    "fast-check": "^4.10.2",
+    "vitest": "^5.0.3",
     "wrangler": "^4.149.0"
   }
 }

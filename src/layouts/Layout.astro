@@ -1,128 +1,414 @@
-```astro
 ---
+import "../styles/tokens.css";
+
 interface Props {
-        title?: string;
-        description?: string;
+  title?: string;
+  description?: string;
 }
 
 const {
-        title = "HelloWereld — Rajesh Nair",
-        description = "Rajesh Nair — Software Engineer, MongoDB Champion, Author and Speaker.",
+  title = "HelloWereld — Rajesh Nair",
+  description = "Rajesh Nair — Software Engineer, MongoDB Champion, Author and Speaker.",
 } = Astro.props;
+
+const currentPath = Astro.url.pathname;
+
+const navLinks = [
+  { href: "/writing",  label: "Writing"  },
+  { href: "/projects", label: "Projects" },
+  { href: "/talks",    label: "Talks"    },
+  { href: "/about",    label: "About"    },
+];
+
+function isActive(href: string) {
+  if (href === "/") return currentPath === "/";
+  return currentPath.startsWith(href);
+}
 ---
 
 <!doctype html>
 <html lang="en">
-        <head>
-                <meta charset="UTF-8" />
-                <meta name="viewport" content="width=device-width" />
-                <meta name="description" content={description} />
-                <meta name="generator" content={Astro.generator} />
-                <title>{title}</title>
-        </head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={description} />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
 
-        <body>
-                <header class="site-header">
-                        <div class="header-inner">
-                                <a href="/" class="logo">HelloWereld</a>
+  <body>
+    <!-- ======================================================
+         Site Header
+    ======================================================= -->
+    <header class="site-header" id="site-header">
+      <div class="header-inner">
+        <a href="/" class="logo" aria-label="HelloWereld — home">HelloWereld</a>
 
-                                <nav>
-                                        <a href="/writing">Writing</a>
-                                        <a href="/tutorials">Tutorials</a>
-                                        <a href="/mongodb">MongoDB</a>
-                                        <a href="/projects">Projects</a>
-                                        <a href="/talks">Talks</a>
-                                        <a href="/about">About</a>
-                                </nav>
-                        </div>
-                </header>
+        <!-- Desktop nav -->
+        <nav class="desktop-nav" aria-label="Primary navigation">
+          {navLinks.map(({ href, label }) => (
+            <a
+              href={href}
+              class:list={["nav-link", { active: isActive(href) }]}
+              aria-current={isActive(href) ? "page" : undefined}
+            >
+              {label}
+            </a>
+          ))}
+        </nav>
 
-                <main>
-                        <slot />
-                </main>
+        <!-- Mobile menu trigger -->
+        <button
+          class="menu-toggle"
+          id="menu-toggle"
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+          aria-label="Open navigation menu"
+          type="button"
+        >
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+      </div>
+    </header>
 
-                <footer class="site-footer">
-                        <div class="footer-inner">
-                                <span>© {new Date().getFullYear()} Rajesh Nair</span>
-                                <span>HelloWereld</span>
-                        </div>
-                </footer>
-        </body>
+    <!-- ======================================================
+         Mobile nav drawer
+    ======================================================= -->
+    <nav
+      class="mobile-menu"
+      id="mobile-menu"
+      aria-label="Mobile navigation"
+      aria-hidden="true"
+    >
+      <div class="mobile-menu-inner">
+        {navLinks.map(({ href, label }) => (
+          <a
+            href={href}
+            class:list={["mobile-nav-link", { active: isActive(href) }]}
+            aria-current={isActive(href) ? "page" : undefined}
+          >
+            {label}
+          </a>
+        ))}
+      </div>
+    </nav>
+
+    <!-- Backdrop for mobile menu -->
+    <div class="menu-backdrop" id="menu-backdrop" aria-hidden="true"></div>
+
+    <!-- ======================================================
+         Main content
+    ======================================================= -->
+    <main id="main-content">
+      <slot />
+    </main>
+
+    <!-- ======================================================
+         Site Footer
+    ======================================================= -->
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <span class="footer-brand">HelloWereld</span>
+        <span class="footer-copy">© {new Date().getFullYear()} Rajesh Nair</span>
+      </div>
+    </footer>
+  </body>
 </html>
 
+<script>
+  const toggle   = document.getElementById("menu-toggle")!;
+  const menu     = document.getElementById("mobile-menu")!;
+  const backdrop = document.getElementById("menu-backdrop")!;
+
+  function openMenu() {
+    menu.setAttribute("aria-hidden", "false");
+    menu.classList.add("is-open");
+    backdrop.classList.add("is-visible");
+    toggle.setAttribute("aria-expanded", "true");
+    toggle.setAttribute("aria-label", "Close navigation menu");
+    toggle.classList.add("is-open");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeMenu() {
+    menu.setAttribute("aria-hidden", "true");
+    menu.classList.remove("is-open");
+    backdrop.classList.remove("is-visible");
+    toggle.setAttribute("aria-expanded", "false");
+    toggle.setAttribute("aria-label", "Open navigation menu");
+    toggle.classList.remove("is-open");
+    document.body.style.overflow = "";
+  }
+
+  toggle.addEventListener("click", () => {
+    const isOpen = toggle.getAttribute("aria-expanded") === "true";
+    isOpen ? closeMenu() : openMenu();
+  });
+
+  backdrop.addEventListener("click", closeMenu);
+
+  // Close on Escape
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && toggle.getAttribute("aria-expanded") === "true") {
+      closeMenu();
+      toggle.focus();
+    }
+  });
+
+  // Close when a mobile nav link is clicked (navigation)
+  menu.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", closeMenu);
+  });
+</script>
+
 <style>
-        :global(*) {
-                box-sizing: border-box;
-        }
+  /* ----------------------------------------------------------
+     Global resets & base
+  ---------------------------------------------------------- */
+  :global(*) {
+    box-sizing: border-box;
+  }
 
-        :global(html) {
-                font-family:
-                        Inter, ui-sans-serif, system-ui, -apple-system,
-                        BlinkMacSystemFont, "Segoe UI", sans-serif;
-                background: #ffffff;
-                color: #171717;
-        }
+  :global(html) {
+    font-family: var(--font-sans);
+    background: var(--color-bg);
+    color: var(--color-text);
+    scroll-behavior: smooth;
+  }
 
-        :global(body) {
-                margin: 0;
-                min-width: 320px;
-        }
+  :global(body) {
+    margin: 0;
+    min-width: 320px;
+  }
 
-        .site-header {
-                border-bottom: 1px solid #e5e5e5;
-                background: rgba(255, 255, 255, 0.95);
-        }
+  /* ----------------------------------------------------------
+     Header
+  ---------------------------------------------------------- */
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    height: var(--header-height);
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--color-border);
+  }
 
-        .header-inner,
-        .footer-inner {
-                max-width: 1100px;
-                margin: 0 auto;
-                padding: 1rem 1.5rem;
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-        }
+  .header-inner {
+    max-width: var(--container-xl);
+    margin: 0 auto;
+    padding: 0 var(--space-6);
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-6);
+  }
 
-        .logo {
-                color: #171717;
-                text-decoration: none;
-                font-weight: 700;
-                font-size: 1.25rem;
-        }
+  .logo {
+    color: var(--color-text);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: var(--text-xl);
+    letter-spacing: -0.02em;
+    flex-shrink: 0;
+  }
 
-        nav {
-                display: flex;
-                gap: 1.25rem;
-        }
+  /* ----------------------------------------------------------
+     Desktop nav
+  ---------------------------------------------------------- */
+  .desktop-nav {
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
+  }
 
-        nav a {
-                color: #525252;
-                text-decoration: none;
-                font-size: 0.95rem;
-        }
+  .nav-link {
+    padding: var(--space-2) var(--space-3);
+    border-radius: var(--radius-md);
+    color: var(--color-secondary);
+    text-decoration: none;
+    font-size: var(--text-sm);
+    font-weight: 500;
+    transition: color var(--transition-fast), background var(--transition-fast);
+  }
 
-        nav a:hover {
-                color: #171717;
-        }
+  .nav-link:hover {
+    color: var(--color-text);
+    background: var(--color-border);
+  }
 
-        main {
-                min-height: calc(100vh - 130px);
-        }
+  .nav-link.active {
+    color: var(--color-text);
+    font-weight: 600;
+  }
 
-        .site-footer {
-                border-top: 1px solid #e5e5e5;
-                color: #737373;
-                font-size: 0.875rem;
-        }
+  /* ----------------------------------------------------------
+     Mobile menu toggle (hamburger)
+  ---------------------------------------------------------- */
+  .menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    width: 36px;
+    height: 36px;
+    padding: var(--space-2);
+    background: transparent;
+    border: none;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    flex-shrink: 0;
+  }
 
-        @media (max-width: 700px) {
-                nav {
-                        display: none;
-                }
+  .menu-toggle:hover {
+    background: var(--color-border);
+  }
 
-                .header-inner {
-                        padding: 1rem;
-                }
-        }
+  .bar {
+    display: block;
+    width: 18px;
+    height: 1.5px;
+    background: var(--color-text);
+    border-radius: 2px;
+    transition: transform var(--transition-base), opacity var(--transition-base);
+    transform-origin: center;
+  }
+
+  /* Animate to ✕ when open */
+  .menu-toggle.is-open .bar:nth-child(1) {
+    transform: translateY(6.5px) rotate(45deg);
+  }
+  .menu-toggle.is-open .bar:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  .menu-toggle.is-open .bar:nth-child(3) {
+    transform: translateY(-6.5px) rotate(-45deg);
+  }
+
+  /* ----------------------------------------------------------
+     Mobile menu drawer
+  ---------------------------------------------------------- */
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    inset: 0;
+    top: var(--header-height);
+    right: 0;
+    bottom: 0;
+    left: auto;
+    width: min(280px, 85vw);
+    z-index: 90;
+    background: var(--color-surface);
+    border-left: 1px solid var(--color-border);
+    transform: translateX(100%);
+    transition: transform var(--transition-slow);
+  }
+
+  .mobile-menu.is-open {
+    transform: translateX(0);
+  }
+
+  .mobile-menu-inner {
+    display: flex;
+    flex-direction: column;
+    padding: var(--space-6);
+    gap: var(--space-2);
+  }
+
+  .mobile-nav-link {
+    display: block;
+    padding: var(--space-3) var(--space-4);
+    border-radius: var(--radius-md);
+    color: var(--color-secondary);
+    text-decoration: none;
+    font-size: var(--text-base);
+    font-weight: 500;
+    transition: color var(--transition-fast), background var(--transition-fast);
+  }
+
+  .mobile-nav-link:hover {
+    color: var(--color-text);
+    background: var(--color-bg);
+  }
+
+  .mobile-nav-link.active {
+    color: var(--color-text);
+    font-weight: 600;
+    background: var(--color-bg);
+  }
+
+  /* Backdrop */
+  .menu-backdrop {
+    display: none;
+    position: fixed;
+    inset: 0;
+    top: var(--header-height);
+    z-index: 80;
+    background: rgba(0, 0, 0, 0.25);
+    opacity: 0;
+    transition: opacity var(--transition-base);
+  }
+
+  .menu-backdrop.is-visible {
+    opacity: 1;
+  }
+
+  /* ----------------------------------------------------------
+     Main content
+  ---------------------------------------------------------- */
+  main {
+    min-height: calc(100vh - var(--header-height) - 60px);
+  }
+
+  /* ----------------------------------------------------------
+     Footer
+  ---------------------------------------------------------- */
+  .site-footer {
+    border-top: 1px solid var(--color-border);
+    color: var(--color-muted);
+    font-size: var(--text-sm);
+  }
+
+  .footer-inner {
+    max-width: var(--container-xl);
+    margin: 0 auto;
+    padding: var(--space-5) var(--space-6);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+  }
+
+  .footer-brand {
+    font-weight: 600;
+    color: var(--color-secondary);
+    font-size: var(--text-sm);
+  }
+
+  /* ----------------------------------------------------------
+     Responsive
+  ---------------------------------------------------------- */
+  @media (max-width: 700px) {
+    .desktop-nav {
+      display: none;
+    }
+
+    .menu-toggle {
+      display: flex;
+    }
+
+    .mobile-menu,
+    .menu-backdrop {
+      display: block;
+    }
+
+    .header-inner {
+      padding: 0 var(--space-4);
+    }
+  }
 </style>
-```
