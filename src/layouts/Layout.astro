@@ -37,6 +37,8 @@ function isActive(href: string) {
   </head>
 
   <body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
     <!-- ======================================================
          Site Header
     ======================================================= -->
@@ -165,6 +167,28 @@ function isActive(href: string) {
 
 <style>
   /* ----------------------------------------------------------
+     Skip navigation link
+  ---------------------------------------------------------- */
+  .skip-link {
+    position: absolute;
+    top: -100%;
+    left: var(--space-4);
+    z-index: 999;
+    padding: var(--space-2) var(--space-4);
+    background: var(--color-surface);
+    color: var(--color-text);
+    font-weight: 600;
+    text-decoration: none;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    transition: top var(--transition-fast);
+  }
+
+  .skip-link:focus-visible {
+    top: var(--space-4);
+  }
+
+  /* ----------------------------------------------------------
      Global resets & base
   ---------------------------------------------------------- */
   :global(*) {
@@ -181,6 +205,13 @@ function isActive(href: string) {
   :global(body) {
     margin: 0;
     min-width: 320px;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    :global(*, *::before, *::after) {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 
   /* ----------------------------------------------------------

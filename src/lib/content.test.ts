@@ -1,4 +1,5 @@
 import { describe, it, expect } from "vitest";
+import * as fc from "fast-check";
 import {
 	sortByDateDescending,
 	getRecentPosts,
@@ -288,5 +289,137 @@ describe("sortProjectsPage", () => {
 
 	it("handles an empty array", () => {
 		expect(sortProjectsPage([])).toEqual([]);
+	});
+});
+
+// ---------------------------------------------------------------------------
+// Property-based tests
+// ---------------------------------------------------------------------------
+
+// Feature: hellowereld-personal-site, Property 5: projects page compound sort preserves featured-first then title order
+// Validates: Requirements 9.2
+describe("sortProjectsPage — property 5: featured-first then title ascending", () => {
+	it("holds for any array of project-shaped objects", () => {
+		fc.assert(
+			fc.property(
+				fc.array(
+					fc.record({ data: fc.record({ featured: fc.boolean(), title: fc.string() }) }),
+				),
+				(projects) => {
+					const result = sortProjectsPage(projects as any);
+					// All featured:true items must come before featured:false items
+					let seenFalse = false;
+					for (const p of result) {
+						if (!p.data.featured) seenFalse = true;
+						if (seenFalse) expect(p.data.featured).toBe(false);
+					}
+					// Within each group, titles must be ascending
+					const featuredItems = result.filter((p) => p.data.featured);
+					const nonFeaturedItems = result.filter((p) => !p.data.featured);
+					for (const group of [featuredItems, nonFeaturedItems]) {
+						for (let i = 0; i < group.length - 1; i++) {
+							expect(
+								group[i].data.title.localeCompare(group[i + 1].data.title),
+							).toBeLessThanOrEqual(0);
+						}
+					}
+				},
+			),
+			{ numRuns: 100 },
+		);
+	});
+});
+
+// ---------------------------------------------------------------------------
+// Property-based tests
+// ---------------------------------------------------------------------------
+
+// Feature: hellowereld-personal-site, Property 4: homepage featured project filter and sort
+// Validates: Requirements 4.6
+it("Property 4: getFeaturedProjects only returns featured entries, sorted by title asc, capped at 3", () => {
+	fc.assert(
+		fc.property(
+			fc.array(
+				fc.record({ data: fc.record({ featured: fc.boolean(), title: fc.string() }) }),
+			),
+			(projects) => {
+				const result = getFeaturedProjects(projects as any, 3);
+				// All results must be featured
+				expect(result.every((p) => p.data.featured)).toBe(true);
+				// At most 3 results
+				expect(result.length).toBeLessThanOrEqual(3);
+				// Sorted by title ascending
+				for (let i = 0; i < result.length - 1; i++) {
+					expect(
+						result[i].data.title.localeCompare(result[i + 1].data.title),
+					).toBeLessThanOrEqual(0);
+				}
+			},
+		),
+		{ numRuns: 100 },
+	);
+});
+
+// ---------------------------------------------------------------------------
+// Property-Based Tests
+// ---------------------------------------------------------------------------
+
+// Feature: hellowereld-personal-site, Property 1: date sort is always descending
+// Validates: Requirements 4.1, 6.2, 10.2
+// Uses fc.integer() timestamps (ms since epoch) to build valid Date objects,
+// matching z.coerce.date() in the content schema which always produces valid dates.
+// fc.date() with min/max bounds can still produce NaN dates during shrinking,
+// so integer-based construction is used instead.
+describe("sortByDateDescending — property: result is always date-descending", () => {
+	it("holds for any non-empty array of entries with a date field", () => {
+		// Build valid dates from integer timestamps to avoid fc.date() NaN shrinking artifacts
+		const validDate = fc
+			.integer({ min: 0, max: 4_102_444_800_000 }) // 1970 – 2100
+			.map((ms) => new Date(ms));
+
+		fc.assert(
+			fc.property(
+				fc.array(fc.record({ data: fc.record({ date: validDate }) }), {
+					minLength: 1,
+				}),
+				(entries) => {
+					const sorted = sortByDateDescending(entries);
+					for (let i = 0; i < sorted.length - 1; i++) {
+						expect(sorted[i].data.date.valueOf()).toBeGreaterThanOrEqual(
+							sorted[i + 1].data.date.valueOf(),
+						);
+					}
+				},
+			),
+			{ numRuns: 100 },
+		);
+	});
+});
+
+// Feature: hellowereld-personal-site, Property 3: link target resolution follows externalUrl presence
+// Validates: Requirements 4.3, 4.4, 6.4, 6.5
+describe("resolvePostLink — property 3: link target follows externalUrl presence", () => {
+	it("holds for any Writing_Post shaped object with optional externalUrl", () => {
+		fc.assert(
+			fc.property(
+				fc.record({
+					id: fc.string({ minLength: 1 }),
+					data: fc.record({
+						externalUrl: fc.option(fc.webUrl(), { nil: undefined }),
+					}),
+				}),
+				(post) => {
+					const { href, isExternal } = resolvePostLink(post as any);
+					if (post.data.externalUrl) {
+						expect(href).toBe(post.data.externalUrl);
+						expect(isExternal).toBe(true);
+					} else {
+						expect(href).toBe(`/writing/${post.id}`);
+						expect(isExternal).toBe(false);
+					}
+				},
+			),
+			{ numRuns: 100 },
+		);
 	});
 });
