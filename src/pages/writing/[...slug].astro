@@ -1,0 +1,154 @@
+---
+import { getCollection, render } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+
+export async function getStaticPaths() {
+	const posts = await getCollection("writing");
+
+	return posts.map((post) => ({
+		params: {
+			slug: post.id,
+		},
+		props: {
+			post,
+		},
+	}));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+---
+
+<Layout
+	title={`${post.data.title} — HelloWereld`}
+	description={post.data.description}
+>
+	<article class="article">
+		<header>
+			<a href="/writing" class="back">← Back to writing</a>
+
+			<p class="date">
+				{post.data.date.toLocaleDateString("en-GB", {
+					year: "numeric",
+					month: "long",
+					day: "numeric",
+				})}
+			</p>
+
+			<h1>{post.data.title}</h1>
+
+			<p class="description">{post.data.description}</p>
+
+			{post.data.tags.length > 0 && (
+				<div class="tags">
+					{post.data.tags.map((tag) => <span>{tag}</span>)}
+				</div>
+			)}
+		</header>
+
+		<div class="content">
+			<Content />
+		</div>
+	</article>
+</Layout>
+
+<style>
+	.article {
+		max-width: 760px;
+		margin: 0 auto;
+		padding: 4rem 1.5rem 6rem;
+	}
+
+	.back {
+		display: inline-block;
+		margin-bottom: 3rem;
+		color: #737373;
+		text-decoration: none;
+		font-size: 0.9rem;
+	}
+
+	.back:hover {
+		color: #171717;
+	}
+
+	header {
+		margin-bottom: 3rem;
+	}
+
+	.date {
+		margin: 0 0 1rem;
+		font-size: 0.9rem;
+		color: #737373;
+	}
+
+	h1 {
+		margin: 0 0 1rem;
+		font-size: clamp(2.5rem, 7vw, 4.5rem);
+		line-height: 1.05;
+		letter-spacing: -0.04em;
+	}
+
+	.description {
+		margin: 0;
+		font-size: 1.2rem;
+		line-height: 1.7;
+		color: #525252;
+	}
+
+	.tags {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+		margin-top: 1.5rem;
+	}
+
+	.tags span {
+		padding: 0.35rem 0.65rem;
+		border: 1px solid #e5e5e5;
+		border-radius: 999px;
+		font-size: 0.8rem;
+		color: #525252;
+	}
+
+	.content {
+		font-size: 1.05rem;
+		line-height: 1.8;
+	}
+
+	.content :global(h2) {
+		margin-top: 3rem;
+		font-size: 1.8rem;
+	}
+
+	.content :global(h3) {
+		margin-top: 2rem;
+		font-size: 1.4rem;
+	}
+
+	.content :global(p) {
+		margin: 1.25rem 0;
+	}
+
+	.content :global(a) {
+		color: inherit;
+	}
+
+	.content :global(ul),
+	.content :global(ol) {
+		padding-left: 1.5rem;
+	}
+
+	.content :global(code) {
+		padding: 0.15rem 0.35rem;
+		background: #f5f5f5;
+		border-radius: 4px;
+		font-size: 0.9em;
+	}
+
+	.content :global(pre) {
+		padding: 1.25rem;
+		overflow-x: auto;
+		background: #f5f5f5;
+		border-radius: 8px;
+	}
+</style>

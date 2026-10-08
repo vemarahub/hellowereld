@@ -1,0 +1,134 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+
+const posts = await getCollection("writing");
+
+const sortedPosts = posts.sort(
+	(a, b) => b.data.date.valueOf() - a.data.date.valueOf(),
+);
+---
+
+<Layout
+	title="Writing — Rajesh Nair"
+	description="Articles, tutorials and technical writing by Rajesh Nair."
+>
+	<section class="page">
+		<header class="intro">
+			<p class="eyebrow">Writing</p>
+			<h1>Things I've learned along the way.</h1>
+			<p>
+				Technical articles, tutorials and notes from building software,
+				working with databases and exploring new technologies.
+			</p>
+		</header>
+
+		<div class="posts">
+			{
+				sortedPosts.map((post) => (
+					<article class="post">
+						<div class="meta">
+							{post.data.date.toLocaleDateString("en-GB", {
+								year: "numeric",
+								month: "short",
+								day: "numeric",
+							})}
+						</div>
+
+						<h2>{post.data.title}</h2>
+
+						<p>{post.data.description}</p>
+
+						{post.data.tags.length > 0 && (
+							<div class="tags">
+								{post.data.tags.map((tag) => (
+									<span>{tag}</span>
+								))}
+							</div>
+						)}
+					</article>
+				))
+			}
+		</div>
+	</section>
+</Layout>
+
+<style>
+	.page {
+		max-width: 900px;
+		margin: 0 auto;
+		padding: 5rem 1.5rem;
+	}
+
+	.intro {
+		max-width: 700px;
+		margin-bottom: 4rem;
+	}
+
+	.eyebrow {
+		margin: 0 0 0.75rem;
+		font-size: 0.85rem;
+		font-weight: 700;
+		text-transform: uppercase;
+		letter-spacing: 0.08em;
+		color: #737373;
+	}
+
+	h1 {
+		margin: 0 0 1rem;
+		font-size: clamp(2.5rem, 6vw, 4.5rem);
+		line-height: 1.05;
+		letter-spacing: -0.04em;
+	}
+
+	.intro > p:last-child {
+		margin: 0;
+		font-size: 1.15rem;
+		line-height: 1.7;
+		color: #525252;
+	}
+
+	.posts {
+		display: grid;
+		gap: 0;
+		border-top: 1px solid #e5e5e5;
+	}
+
+	.post {
+		padding: 2rem 0;
+		border-bottom: 1px solid #e5e5e5;
+	}
+
+	.meta {
+		margin-bottom: 0.75rem;
+		font-size: 0.85rem;
+		color: #737373;
+	}
+
+	h2 {
+		margin: 0 0 0.75rem;
+		font-size: 1.5rem;
+	}
+
+	.post p {
+		margin: 0;
+		max-width: 700px;
+		line-height: 1.7;
+		color: #525252;
+	}
+
+	.tags {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+		margin-top: 1rem;
+	}
+
+	.tags span {
+		padding: 0.35rem 0.65rem;
+		border: 1px solid #e5e5e5;
+		border-radius: 999px;
+		font-size: 0.8rem;
+		color: #525252;
+	}
+</style>
